@@ -7,6 +7,7 @@ import { ReactComponent as CaretIcon } from "./icons/caret.svg";
 import { ReactComponent as PlusIcon } from "./icons/plus.svg";
 import { ReactComponent as CogIcon } from "./icons/cog.svg";
 import { DropDownMenu } from "./components/DropDownMenu";
+import { Switch, Route } from "react-router-dom";
 
 function App() {
   const items = [
@@ -14,34 +15,39 @@ function App() {
       name: "My Profile",
       icon: "👦",
       hasSubMenu: false,
+      path: "/profile",
+    },
+    {
+      name: "Activity Log",
+      icon: "🉑",
+      hasSubMenu: false,
+      path: "/activity",
     },
     {
       name: "Settings",
       icon: <CogIcon />,
       hasSubMenu: true,
       subMenu: [
-        { name: "Privacy", icon: "🔑" },
-        { name: "Customization", icon: "💻" },
-        { name: "General", icon: "👮" },
-        { name: "Theme", icon: "🍫" },
+        { name: "Privacy", icon: "🔑", path: "/privacy" },
+        { name: "Customization", icon: "💻", path: "/customization" },
+        { name: "General", icon: "👮", path: "/general" },
+        { name: "Preferences", icon: "🍫", path: "/preferences" },
       ],
     },
-    {
-      name: "Groups",
-      icon: "👫",
-      hasSubMenu: true,
-      subMenu: [
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-        { name: "Language", icon: "💻" },
-      ],
-    },
+    // {
+    //   name: "Groups",
+    //   icon: "👫",
+    //   hasSubMenu: true,
+    //   path: "/groups",
+    //   subMenu: [
+    //     { name: "Language", icon: "💻" },
+    //     { name: "Language", icon: "💻" },
+    //     { name: "Language", icon: "💻" },
+    //     { name: "Language", icon: "💻" },
+    //     { name: "Language", icon: "💻" },
+    //     { name: "Language", icon: "💻" },
+    //   ],
+    // },
   ];
   return (
     <div className="App">
@@ -54,6 +60,9 @@ function App() {
           <DropDownMenu items={items} />
         </NavItem>
       </NavBar>
+      <Switch>
+        <Route path="/" exact component={() => <h1>Route 1</h1>} />
+      </Switch>
     </div>
   );
 }

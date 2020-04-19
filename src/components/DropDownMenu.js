@@ -2,28 +2,32 @@ import React, { useState, useEffect, useRef } from "react";
 import { ReactComponent as ChevronIcon } from "../icons/chevron.svg";
 import { ReactComponent as ArrowIcon } from "../icons/arrow.svg";
 import { CSSTransition } from "react-transition-group";
+import { Link } from "react-router-dom";
 
 const DropDownItem = (props) => {
   return (
     // eslint-disable-next-line
-    <a
-      href="#"
-      className="menu-item"
-      onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}
-    >
+    <Link to={props.path ? `${props.path}` : "/"}>
       <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
+        className="menu-item"
+        onClick={() => props.goToMenu && props.setActiveMenu(props.goToMenu)}
       >
-        <span className="icon-button">{props.leftIcon}</span>
-        &nbsp;&nbsp;
-        {props.children}
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <span className="icon-button">{props.leftIcon}</span>
+          &nbsp;&nbsp;
+          {props.children}
+        </div>
+        {props.rightIcon && (
+          <span className="icon-right">{props.rightIcon}</span>
+        )}
       </div>
-      {props.rightIcon && <span className="icon-right">{props.rightIcon}</span>}
-    </a>
+    </Link>
   );
 };
 
@@ -47,7 +51,7 @@ export const DropDownMenu = (props) => {
       <CSSTransition
         in={activeMenu === item.name}
         unmountOnExit
-        timeout={500}
+        timeout={220}
         classNames="menu-secondary"
         onEnter={calcMenuHeight}
       >
@@ -56,9 +60,15 @@ export const DropDownMenu = (props) => {
             leftIcon={<ArrowIcon />}
             goToMenu="main"
             setActiveMenu={setActiveMenu}
-          />
+          >
+            <h2>{item.name}</h2>
+          </DropDownItem>
           {item.subMenu.map((subMenuItem, i) => (
-            <DropDownItem key={i} leftIcon={subMenuItem.icon}>
+            <DropDownItem
+              key={i}
+              path={subMenuItem.path}
+              leftIcon={subMenuItem.icon}
+            >
               {subMenuItem.name}
             </DropDownItem>
           ))}
@@ -72,7 +82,7 @@ export const DropDownMenu = (props) => {
       <CSSTransition
         in={activeMenu === "main"}
         unmountOnExit
-        timeout={500}
+        timeout={220}
         classNames="menu-primary"
         onEnter={calcMenuHeight}
       >
@@ -82,6 +92,7 @@ export const DropDownMenu = (props) => {
               <DropDownItem
                 setActiveMenu={setActiveMenu}
                 key={i}
+                path={item.path}
                 leftIcon={item.icon}
                 rightIcon={item.hasSubMenu ? <ChevronIcon /> : null}
                 goToMenu={item.hasSubMenu ? item.name : false}
