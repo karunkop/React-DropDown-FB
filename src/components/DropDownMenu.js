@@ -30,24 +30,19 @@ const DropDownItem = (props) => {
 export const DropDownMenu = (props) => {
   const [activeMenu, setActiveMenu] = useState("main");
   const [menuHeight, setMenuHeight] = useState(null);
-  const [subMenus, setSubMenus] = useState(null);
   const dropdownRef = useRef(null);
   const { items } = props;
 
   useEffect(() => {
     setMenuHeight(dropdownRef.current?.firstChild.offsetHeight);
-    let filter = items.filter((item) => item.hasSubMenu);
-    setSubMenus(filter);
   }, []);
 
   const calcMenuHeight = (el) => {
     const height = el.offsetHeight;
     setMenuHeight(height);
   };
-  console.log(subMenus);
 
   const renderSubMenu = (item) => {
-    console.log(item, "INSIDE RENDER");
     return (
       <CSSTransition
         in={activeMenu === item.name}
@@ -71,9 +66,9 @@ export const DropDownMenu = (props) => {
       </CSSTransition>
     );
   };
+
   return (
     <div className="dropdown" style={{ height: menuHeight }} ref={dropdownRef}>
-      {/* {items.filter((item) => item.hasSubMenu).map((sub) => renderSubMenu(sub))} */}
       <CSSTransition
         in={activeMenu === "main"}
         unmountOnExit
