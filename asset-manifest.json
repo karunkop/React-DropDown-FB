@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/React-DropDown-FB/static/css/main.845b7c2e.chunk.css",
+    "main.js": "/React-DropDown-FB/static/js/main.3979cfae.chunk.js",
+    "main.js.map": "/React-DropDown-FB/static/js/main.3979cfae.chunk.js.map",
+    "runtime-main.js": "/React-DropDown-FB/static/js/runtime-main.e49f4234.js",
+    "runtime-main.js.map": "/React-DropDown-FB/static/js/runtime-main.e49f4234.js.map",
+    "static/js/2.45546446.chunk.js": "/React-DropDown-FB/static/js/2.45546446.chunk.js",
+    "static/js/2.45546446.chunk.js.map": "/React-DropDown-FB/static/js/2.45546446.chunk.js.map",
+    "index.html": "/React-DropDown-FB/index.html",
+    "precache-manifest.cc623cb22e662cb3ce2b7a37312ad23c.js": "/React-DropDown-FB/precache-manifest.cc623cb22e662cb3ce2b7a37312ad23c.js",
+    "service-worker.js": "/React-DropDown-FB/service-worker.js",
+    "static/css/main.845b7c2e.chunk.css.map": "/React-DropDown-FB/static/css/main.845b7c2e.chunk.css.map",
+    "static/js/2.45546446.chunk.js.LICENSE.txt": "/React-DropDown-FB/static/js/2.45546446.chunk.js.LICENSE.txt",
+    "static/media/arrow.48ae6434.svg": "/React-DropDown-FB/static/media/arrow.48ae6434.svg",
+    "static/media/bell.e9fd40a7.svg": "/React-DropDown-FB/static/media/bell.e9fd40a7.svg",
+    "static/media/caret.615e14d1.svg": "/React-DropDown-FB/static/media/caret.615e14d1.svg",
+    "static/media/chevron.efbb2bd6.svg": "/React-DropDown-FB/static/media/chevron.efbb2bd6.svg",
+    "static/media/cog.993f0cc0.svg": "/React-DropDown-FB/static/media/cog.993f0cc0.svg",
+    "static/media/messenger.9fdc8d67.svg": "/React-DropDown-FB/static/media/messenger.9fdc8d67.svg",
+    "static/media/plus.9311af2e.svg": "/React-DropDown-FB/static/media/plus.9311af2e.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e49f4234.js",
+    "static/js/2.45546446.chunk.js",
+    "static/css/main.845b7c2e.chunk.css",
+    "static/js/main.3979cfae.chunk.js"
+  ]
+}
